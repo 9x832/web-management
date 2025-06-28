@@ -2,8 +2,8 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.itheima.mapper.ClazzMapper">
-<!--    查询所有班级-->
-    <select id="list" resultType="com.itheima.pojo.Clazz">
+
+    <select id="page" resultType="com.itheima.pojo.Clazz">
         select c.*, e.name empName from clazz as c left join emp as e on c.master_id = e.id
         <where>
             <if test="name != null and name !=''">
@@ -26,4 +26,9 @@
             <if test="subject != null">subject = #{subject}</if>
         </set>
     </update>
+
+    <!--    查询所有班级-->
+    <select id="list" resultType="com.itheima.pojo.Clazz">
+        select c.*, e.name empName from clazz as c left join emp as e on c.master_id = e.id
+    </select>
 </mapper>

@@ -5,6 +5,8 @@ import com.itheima.pojo.Clazz;
 import com.itheima.pojo.PageResult;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 public interface ClaService {
 
     /**
@@ -36,4 +38,10 @@ public interface ClaService {
      * @param clazz
      */
     void update(Clazz clazz);
+    
+    /**
+     * 查询所有班级
+     * @return 班级列表
+     */
+    List<Clazz> list();
 }

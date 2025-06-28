@@ -6,16 +6,18 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface EmpMapper {
     /**
      * 按条件查询所有员工及对应的部门信息
      */
-    List<Emp> list(EmpQueryParam empQueryParam);
+    List<Emp> page(EmpQueryParam empQueryParam);
 
     /**
      * 新增员工
@@ -40,5 +42,31 @@ public interface EmpMapper {
      * @param emp
      */
     void updateById(Emp emp);
+
+    /**
+     * 统计员工性别数据
+     * @return 员工性别统计数据
+     */
+    List<Map<String, Object>> countByGender();
+
+    /**
+     * 统计员工职位人数数据
+     * @return 员工职位人数统计数据
+     */
+    List<Map<String, Object>> countByJob();
+    
+    /**
+     * 根据用户名查询员工
+     * @param username 用户名
+     * @return 员工信息
+     */
+    @Select("select * from emp where username = #{username}")
+    Emp getByUsername(String username);
+
+    /**
+     * 查询所有员工信息
+     * @return 所有员工信息
+     */
+    List<Emp> list();
 }
 

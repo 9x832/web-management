@@ -14,7 +14,7 @@ public interface ClazzMapper {
     /**
      * 按条件对班级进行分页查询
      */
-    List<Clazz> list(ClaQueryParam claQueryParam);
+    List<Clazz> page(ClaQueryParam claQueryParam);
 
     /**
      * 根据ID删除班级
@@ -44,4 +44,6 @@ public interface ClazzMapper {
      * @param clazz
      */
     void update(Clazz clazz);
+
+    List<Clazz> list();
 }

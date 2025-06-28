@@ -18,10 +18,10 @@ public class Emp {
     @NotBlank(message = "密码不能为空")
     @Size(min = 6, max = 20, message = "密码长度必须在6-20位之间")
     private String password;
-    
+
     @NotBlank(message = "姓名不能为空")
     private String name;
-    
+
     @NotNull(message = "性别不能为空")
     @Min(value = 1, message = "性别值不合法")
     @Max(value = 2, message = "性别值不合法")
@@ -30,21 +30,21 @@ public class Emp {
     @NotBlank(message = "手机号不能为空")
     @Pattern(regexp = "^1[3-9]\\d{9}$", message = "手机号格式不正确")
     private String phone;
-    
+//
     @NotNull(message = "职位不能为空")
     @Min(value = 1, message = "职位不合法")
     private Integer job;
-    
+//
     @NotNull(message = "薪资不能为空")
     @Min(value = 0, message = "薪资不能为负数")
     private Integer salary;
-    
+//
     private String image;
-    
+//
     @NotNull(message = "入职日期不能为空")
     @Past(message = "入职日期不能是将来时间")
     private LocalDate entryDate;
-    
+//
     @NotNull(message = "部门不能为空")
     private Integer deptId;
     

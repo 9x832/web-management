@@ -6,8 +6,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/tlias
     username: root
-    # 使用jasypt加密后的密码，实际运行时通过 -Djasypt.encryptor.password=密钥 传入密钥
-    password: ENC(加密后的密码)
+    password: 123456
   servlet:
     multipart:
       max-file-size: 10MB
@@ -26,11 +25,5 @@ pagehelper:
 logging:
   level:
     org.springframework.jdbc.support.JdbcTransactionManager: debug
-
-# jasypt加密配置
-jasypt:
-  encryptor:
-    algorithm: PBEWITHHMACSHA512ANDAES_256
-    iv-generator-classname: org.jasypt.iv.RandomIvGenerator
 
 

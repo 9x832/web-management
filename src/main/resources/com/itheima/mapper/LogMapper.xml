@@ -1,0 +1,15 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itheima.mapper.LogMapper">
+    
+    <!-- 分页查询日志 -->
+    <select id="page" resultType="com.itheima.pojo.OperateLog">
+        select l.*, e.name as operateEmpName 
+        from operate_log l 
+        left join emp e on l.operate_emp_id = e.id
+        order by l.operate_time desc
+        limit #{start}, #{pageSize}
+    </select>
+    
+</mapper> 

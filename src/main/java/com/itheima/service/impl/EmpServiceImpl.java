@@ -37,7 +37,7 @@ public class EmpServiceImpl implements EmpService {
         // 1.设置PageHelper分页参数
         PageHelper.startPage(empQueryParam.getPage(),empQueryParam.getPageSize());
         // 2.执行查询
-        List<Emp> empList = empMapper.list(empQueryParam);
+        List<Emp> empList = empMapper.page(empQueryParam);
         // 3.封装分页结果
         Page<Emp> p = (Page<Emp>) empList;
         return new PageResult(p.getTotal(), p.getResult());
@@ -112,5 +112,13 @@ public class EmpServiceImpl implements EmpService {
             exprsList.forEach(empExpr -> empExpr.setEmpId(empId));
             empExprMapper.saveBatch(exprsList);
         }
+    }
+
+    /**
+     * 查询所有员工
+     */
+    @Override
+    public List<Emp> list(){
+        return empMapper.list();
     }
 }

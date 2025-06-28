@@ -29,7 +29,7 @@ public class ClaServiceImpl implements ClaService {
         // 1.设置PageHelper分页参数
         PageHelper.startPage(claQueryParam.getPage(),claQueryParam.getPageSize());
         // 2.执行查询
-        List<Clazz> clalist = clazzMapper.list(claQueryParam);
+        List<Clazz> clalist = clazzMapper.page(claQueryParam);
         // 3.封装分页结果
         Page<Clazz> page = (Page<Clazz>) clalist;
 
@@ -72,5 +72,13 @@ public class ClaServiceImpl implements ClaService {
     public void update(Clazz clazz) {
         clazz.setUpdateTime(LocalDateTime.now());
         clazzMapper.update(clazz);
+    }
+
+    /**
+     * 查询所有班级
+     */
+    @Override
+    public List<Clazz> list(){
+        return clazzMapper.list();
     }
 }

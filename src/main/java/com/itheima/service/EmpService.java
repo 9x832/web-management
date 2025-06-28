@@ -35,4 +35,10 @@ public interface EmpService {
      * @param emp
      */
     void update(Emp emp);
+    
+    /**
+     * 查询全部员工
+     * @return 员工列表
+     */
+    List<Emp> list();
 }
